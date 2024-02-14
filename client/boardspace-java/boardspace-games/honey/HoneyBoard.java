@@ -59,12 +59,7 @@ class HoneyBoard extends BaseBoard implements BoardProtocol
     
     long drawTimer = -1;
     int lastActivePlayer  = -1;
- 	void logGameEvent(String str,String... args)
- 	{	//if(!robotBoard)
- 		{String trans = s.get(str,args);
- 		 gameEvents.push(trans);
- 		}
- 	}
+
     public int scoreForPlayer(int idx)
     {
     	return(getPlayerBoard(idx).score());
@@ -298,6 +293,7 @@ class HoneyBoard extends BaseBoard implements BoardProtocol
         	for(HBoard p : pbs) { p.Execute(m,replay); }
         	break;
         case MOVE_SWITCH:
+        	whoseTurn = m.player;
         	break;
         case MOVE_ENDGAME:
 	    	{
